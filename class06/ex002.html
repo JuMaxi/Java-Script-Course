@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first program</title>
+    <style>
+        body{
+            background-color: rgb(7, 101, 135);
+            color: white;
+            font: normal 25pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>I'm free this curse.</p>
+    <script>
+        var n1 = Number.parseInt(window.prompt('Digite um numero: '));
+        var n2 = Number.parseInt(window.prompt('Digite outro numero: '));
+        var sum = n1 + n2;
+        //window.alert('A soma dos valores e: ' + sum); // concatenacao
+        window.alert(`A soma entre os valores ${n1} e ${n2} e igual a ${sum}`); // template string
+    </script>
+</body>
+</html>
