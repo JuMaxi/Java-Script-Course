@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos com DOM</title>
+    <style>
+        body{
+            background-color: rgba(2, 34, 29, 0.466);
+            color: white;
+            font: normal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar <strong>DOM</strong> em JavaScript.</p>
+    <div id="msg">Clique em mim</div>
+    <script>
+        var corpo = window.document.body;
+        var p1 = window.document.getElementsByTagName('p')[0];//o numero dentro do colchetes diz respeito ao numero do paragrafo que eu quero pegar.
+        window.document.writeln('Esta escrito assim: ' + p1.innerText);
+        corpo.style.background = 'darkgreen';
+        p1.style.color = 'black';
+        document.write(p1.innerHTML);
+        var classe = window.document.getElementById('msg');
+        classe.style.background = 'purple';
+        classe.innerText = 'Estou aguardando...';
+
+        var selector = window.document.querySelector('div#msg');
+        selector.style.color = 'gray';
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio teste</title>
+    <style>
+        body{
+            background-color: greenyellow;
+            font: normal 18pt Arial;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>System of Nationality</h1>
+    My Country is: <input type="text" name="Country" id="Country">
+    <input type="button" value="Check" onclick="CheckCountry()">
+    <div id="Nationality"></div>
+    <script>
+        function CheckCountry(){
+            var Country = 'Brazil';
+            var TypeCountry = window.document.querySelector('input#Country').value;
+            var Nationality = window.document.querySelector('div#Nationality')
+
+            if(TypeCountry === Country){
+                Nationality.innerHTML = `<p>You are from <strong>${Country}</strong>. You are Brazilian!</p>`
+            }
+            else{
+                Nationality.innerHTML = `<p>You are from <strong>${TypeCountry}</strong>, so you are not Brazilian.</p>`
+            }
+        }
+    </script>
+</body>
+</html>
