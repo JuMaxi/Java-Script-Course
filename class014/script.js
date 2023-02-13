@@ -1,71 +1,79 @@
+function CheckResult() {
 var Now = new Date();
 var Year = Now.getFullYear();
 
-function CheckResult() {
-var TypedYear = new Date(window.document.getElementById('txtyear'));
+var TypedYear = window.document.getElementById('txtyear');
 var HowOld = window.document.getElementById('res');
-var BiologicalSex = window.document.getElementById('txtsex');
-var Photo = window.document.getElementById('Image');
 
-var Difference = Year - HowOld.getFullYear;
 
-if(Difference < 2 && BiologicalSex === "Male")
+if(TypedYear.value.length == 0 || TypedYear.value > Year)
 {
-    HowOld.innerHTML = `You are a Baby! You are ${Difference} years old and your biological sex is ${BiologicalSex}.`;
-    Photo.src = `images/baby-boy.png`;
+    window.alert('Check the data inserted and try again!');
 }
 else
 {
-    if(Difference < 2 && BiologicalSex === "Female")
+    var BiologicalSex = window.document.getElementsByName('radsex');
+    var Age = Year - Number(TypedYear.value);
+    var Biological = '';
+    var img = document.createElement('img');
+    img.setAttribute('id', 'photo');
+
+    if(BiologicalSex[0].checked)
     {
-        HowOld.innerHTML = `You are a Baby! You are ${Difference} years old and your biological sex is ${BiologicalSex}.`;
-        Photo.src = `images/baby-girl.png`
-    }
-    else
-    {
-        if(Difference < 25 && BiologicalSex === "Male")
+        Biological = "Male";
+        if(Age <= 10)
         {
-            HowOld.innerHTML = `You are a Young Man! You are ${Difference} year old and your biological sex is ${BiologicalSex}.`;
-            Photo.src = `images/young-man.png`;
+            img.setAttribute('src', 'Images/baby-boy.png');
         }
         else
         {
-            if(Difference < 25 && BiologicalSex === "Female")
+            if(Age <= 24)
             {
-                HowOld.innerHTML = `You are a Young Woman! You are ${Difference} year old and your biological sex is ${BiologicalSex}.`;
-                Photo.src = `images/young-woman.png`;
+                img.setAttribute('src', 'Images/young-man.png')
             }
             else
             {
-                if(Difference < 51 && BiologicalSex === "Male")
+                if(Age <= 50)
                 {
-                    HowOld.innerHTML = `You are a Adult Man! You are ${Difference} years old and your biological sex is ${BiologicalSex}.`;
-                    Photo.src = `images/adult-man.png`;
+                    img.setAttribute('src', 'Images/adult-man.png')
                 }
                 else
                 {
-                    if(Difference < 51 && BiologicalSex === "Female")
-                    {
-                        HowOld.innerHTML = `You are a Adult Woman! You are ${Difference} years old and your biological sex is ${BiologicalSex}.`;
-                        Photo.src = `images/adult-woman.png`;
-                    }
-                    else
-                    {
-                        if(BiologicalSex === "Male")
-                        {
-                            HowOld.innerHTML = `You are a Senior Man! You are ${Difference} years old and your biological sex is ${BiologicalSex}.`;
-                            Photo.src = `images/senior-man`;
-                        }
-                        else
-                        {
-                            HowOld.innerHTML = `You are a Senior Woman! You are ${Difference} years old and your biological sex is ${BiologicalSex}.`;
-                            Photo.src = `images/senior-woman`;
-                        }
-                    }
+                    img.setAttribute('src', 'Images/senior-man.png');
                 }
             }
         }
-
     }
+    else
+    {
+        Biological = "Female";
+        if(Age <= 10)
+        {
+            img.setAttribute('src', 'Images/baby-girl.png')
+        }
+        else
+        {
+            if(Age <= 24)
+            {
+                img.setAttribute('src', 'Images/young-woman.png');
+            }
+            else
+            {
+                if(Age <= 50)
+                {
+                    img.setAttribute('src', 'Images/adult-woman.png');
+                }
+                else
+                {
+                    img.setAttribute('src', 'Images/senior-woman.png');
+                }
+            }
+        }
+    }
+    HowOld.style.textAlign = 'center';
+    HowOld.innerHTML = `We checked ${Biological},  ${Age} years old.`;
+    HowOld.appendChild(img);
 }
 }
+
+

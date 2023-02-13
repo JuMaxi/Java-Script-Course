@@ -13,14 +13,21 @@
     </header>
     <section>
         <div>
-            <p>Which year did you born?</p>
-            <input type="number" name="txtyear" id="txtyear">
-            <p>What is your biological sex?</p>
-            <input type="text" name="txtsex" id="txtsex">
+            <p>Which year did you born?
+                <input type="number" name="txtyear" id="txtyear" min="0">
+            </p>
+            <p>What is your biological sex?
+                <input type="radio" name="radsex" id="Male" checked>
+                <label for="Male">Male</label>
+                <input type="radio" name="radsex" id="Female">
+                <label for="Female">Female</label>
+            </p>
+            <p>
+                <input type="button" value="Result" onclick="CheckResult()">
+            </p>
         </div>
         <div id="res">
-            <input type="button" value="Result" onclick="CheckResult()">
-            <img src="images/baby-boy.png" alt="AgePerson" id="Image">
+            Type the fields above to see the results :)
         </div>
     </section>
     <footer>
