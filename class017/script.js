@@ -1,18 +1,22 @@
 function CalculateTable() {
 
 var InsertNumber = window.document.getElementById('Number');
-var ShowTable = window.document.getElementById('ShowTable');
+var SelTable = window.document.getElementById('seltable'); 
 
-const Table = [];
-
-for(var Position = 0; Position <= 10; Position++)
+if(InsertNumber.value.length == 0)
 {
-    var EndNumber = Number(InsertNumber.value) * Position;
-    Table.push(`${InsertNumber.value} x ${Position} = ${EndNumber}`);
+    window.alert('To continue, you must fill the field "Number".');
 }
-
-for(var PositionArray = 0; PositionArray < Table.length; PositionArray++)
+else
 {
-    ShowTable.innerHTML = ShowTable.innerHTML + `${Table[PositionArray]}` + '<hr>';
+    SelTable.innerHTML = '';
+    for(var Position = 0; Position <= 10; Position++)
+    {
+        var EndNumber = Number(InsertNumber.value) * Position;
+        var item = document.createElement('option');
+        item.value = `SelTable ${Position}`;
+        item.text = `${InsertNumber.value} x ${Position} = ${EndNumber}`;
+        SelTable.appendChild(item);
+    }
 }
 }

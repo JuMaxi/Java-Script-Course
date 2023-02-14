@@ -5,9 +5,11 @@ function Counter(){
     var SizeNumber = window.document.getElementById('Size');
     var Numbers = window.document.getElementById('Numbers');
 
-    if(NumberStart.value == 0)
+   
+
+    if(NumberStart.value.length == 0 || NumberEnd.value.length == 0 || Size.value.length == 0)
     {
-        Numbers.innerHTML = ('It is impossible to count. In START, type a number bigger than zero to continue.');
+        Numbers.innerHTML = 'It is impossible to count. You need to fill all fields to continue. ';
     }
     else
     {
@@ -17,22 +19,24 @@ function Counter(){
         }
         else
         {
-            if(NumberEnd.value % Size.value != 0) 
-            {
-                Numbers.innerHTML = ('The START and the SIZE must be Prime Number.')
-            }
-                else
-                {
-                    Numbers.innerHTML = `Counting...`
-                    var WriteNumbers = '';
+            var WriteNumbers = '';
+            Numbers.innerHTML = `Counting...`
 
-                    for(var InitialPosition = Number(NumberStart.value); InitialPosition <= Number(NumberEnd.value); InitialPosition += Number(SizeNumber.value))
+            if(Number(NumberStart.value) < Number(NumberEnd.value))
+            {
+                for(var InitialPosition = Number(NumberStart.value); InitialPosition <= Number(NumberEnd.value); InitialPosition += Number(SizeNumber.value))
                     {
                         WriteNumbers = WriteNumbers + '👉' + InitialPosition;
                     }
-                    Numbers.innerHTML = `${WriteNumbers} 🚩`;
-                    
-                }
+            }
+            else
+            {
+                for(var InitialPosition = Number(NumberStart.value); InitialPosition >= Number(NumberEnd.value); InitialPosition -= Number(SizeNumber.value))
+                    {
+                         WriteNumbers = WriteNumbers + '👉' + InitialPosition;
+                    }
+            }
+            Numbers.innerHTML += `${WriteNumbers} 🚩`;
         }
     }
 }
