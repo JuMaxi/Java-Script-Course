@@ -87,10 +87,11 @@ function Analyzing(){
         }
 
         let Media = Sum / NumbersArray.length;
-        End.innerHTML += `There are ${NumbersArray.length} numbers typed. <hr>`
-        End.innerHTML += `The Media of all numbers is: ${Media}.<hr>`;
-        End.innerHTML += `The Sum of all numbers is: ${Sum}. <hr>`;
-        End.innerHTML += `The Bigger number is: ${Bigger}. <hr>`;
-        End.innerHTML += `The Smaller number is: ${Smaller}. <hr>`;
+        End.innerHTML = '';
+        End.innerHTML += `<p>There are ${NumbersArray.length} numbers typed. </p>`
+        End.innerHTML += `<p>The Media of all numbers is: ${Media}.</p>`;
+        End.innerHTML += `<p>The Sum of all numbers is: ${Sum}. </p>`;
+        End.innerHTML += `<p>The Bigger number is: ${Bigger}. </p>`;
+        End.innerHTML += `<p>The Smaller number is: ${Smaller}. </p>`;
     }
 }
